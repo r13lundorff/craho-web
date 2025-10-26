@@ -3,7 +3,7 @@
     "apps": [],
     "details": [
       {
-        "appID": "TEAM_ID.com.craho.app",
+        "appID": "CRSKYKCDAY.com.craho.app",
         "paths": [
           "/provider-setup",
           "/provider-setup/*",
@@ -15,7 +15,7 @@
   },
   "webcredentials": {
     "apps": [
-      "TEAM_ID.com.craho.app"
+      "CRSKYKCDAY.com.craho.app"
     ]
   }
 }
