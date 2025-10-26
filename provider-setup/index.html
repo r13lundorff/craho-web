@@ -1,1 +1,259 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CraHo - Professionel vinduespudsning og håndværk direkte i appen">
+    <title>CraHo - Håndværk til hjemmet</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <style>
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 24px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .app-badges {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .app-badge {
+            display: inline-block;
+            padding: 12px 32px;
+            background: white;
+            color: #667eea;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 18px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .app-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            text-decoration: none;
+        }
+
+        .features {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 32px;
+            border-radius: 16px;
+            background: #f8f9fa;
+            transition: transform 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #212529;
+        }
+
+        .feature-description {
+            color: #6c757d;
+            line-height: 1.6;
+        }
+
+        .footer {
+            background: #212529;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #adb5bd;
+        }
+
+        .footer a:hover {
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.25rem;
+            }
+
+            .app-badge {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>🏠 CraHo</h1>
+            <p>Professionel vinduespudsning og håndværk direkte i appen</p>
+            <p style="font-size: 1.2rem; opacity: 0.9;">
+                Book kvalificerede håndværkere til dit hjem med få klik
+            </p>
+            
+            <div class="app-badges">
+                <a href="https://apps.apple.com/app/craho" class="app-badge">
+                    📱 Download til iOS
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.craho.app" class="app-badge">
+                    🤖 Download til Android
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="text-center mb-5">Hvorfor vælge CraHo?</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">✅</div>
+                    <h3 class="feature-title">Verificerede Håndværkere</h3>
+                    <p class="feature-description">
+                        Alle vores udbydere er verificerede med CVR-nummer og gennemgår en grundig godkendelsesproces
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <h3 class="feature-title">Nem Booking</h3>
+                    <p class="feature-description">
+                        Book tid direkte i appen og se tilgængelige tider i realtid hos din lokale håndværker
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💳</div>
+                    <h3 class="feature-title">Sikker Betaling</h3>
+                    <p class="feature-description">
+                        Betal sikkert gennem appen med Stripe. Dine kortoplysninger er krypterede og beskyttede
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🗺️</div>
+                    <h3 class="feature-title">Lokal Service</h3>
+                    <p class="feature-description">
+                        Find håndværkere i dit område der kender lokalområdet og kan levere hurtig service
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Fuld Transparens</h3>
+                    <p class="feature-description">
+                        Se priser, anmeldelser og tilgængelighed før du booker. Ingen skjulte omkostninger
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3 class="feature-title">GDPR Compliance</h3>
+                    <p class="feature-description">
+                        Dine data er sikre. Vi overholder alle GDPR-regler og beskytter dit privatliv
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="background: #f8f9fa; padding: 80px 20px; text-align: center;">
+        <div class="container">
+            <h2 style="margin-bottom: 24px;">Klar til at komme i gang?</h2>
+            <p style="font-size: 1.25rem; color: #6c757d; margin-bottom: 40px;">
+                Download CraHo i dag og få professionel service til dit hjem
+            </p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="https://apps.apple.com/app/craho" class="btn btn-primary btn-lg">
+                    Download til iOS
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.craho.app" class="btn btn-success btn-lg">
+                    Download til Android
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Provider CTA -->
+    <section style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 80px 20px; text-align: center; color: white;">
+        <div class="container">
+            <h2 style="color: white; margin-bottom: 24px;">Er du håndværker?</h2>
+            <p style="font-size: 1.25rem; margin-bottom: 40px; opacity: 0.95;">
+                Bliv en del af CraHo-platformen og få adgang til flere kunder
+            </p>
+            <a href="/provider-registration.html" class="btn btn-lg" style="background: white; color: #667eea;">
+                Ansøg som udbyder
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 CraHo. Alle rettigheder forbeholdes.</p>
+            <p>
+                <a href="https://r13lundorff.github.io/craho-legal/privacy.html">Privatlivspolitik</a> |
+                <a href="https://r13lundorff.github.io/craho-legal/support.html">Support</a> |
+                <a href="mailto:support@craho.dk">support@craho.dk</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
 
