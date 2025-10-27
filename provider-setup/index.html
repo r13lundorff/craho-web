@@ -3,257 +3,582 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="CraHo - Professionel vinduespudsning og håndværk direkte i appen">
-    <title>CraHo - Håndværk til hjemmet</title>
-    <link rel="stylesheet" href="assets/styles.css">
+    <meta name="description" content="Opret din CraHo udbyderkonto og begynd at modtage bookinger">
+    <title>Opret Udbyderkonto - CraHo</title>
+    <link rel="stylesheet" href="../assets/styles.css">
     <style>
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+        /* Additional page-specific styles */
+        .setup-container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
         }
 
-        .hero-content {
-            max-width: 800px;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 24px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 40px;
-            opacity: 0.95;
-        }
-
-        .app-badges {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 40px;
-        }
-
-        .app-badge {
-            display: inline-block;
-            padding: 12px 32px;
-            background: white;
-            color: #667eea;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 18px;
-            text-decoration: none;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .app-badge:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-            text-decoration: none;
-        }
-
-        .features {
-            padding: 80px 20px;
-            background: white;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .feature-card {
-            text-align: center;
-            padding: 32px;
-            border-radius: 16px;
+        .provider-info-card {
             background: #f8f9fa;
-            transition: transform 0.2s;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
         }
 
-        .feature-card:hover {
-            transform: translateY(-4px);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 16px;
-        }
-
-        .feature-title {
-            font-size: 1.5rem;
-            font-weight: 600;
+        .provider-info-row {
+            display: flex;
+            justify-content: space-between;
             margin-bottom: 12px;
+            padding: 8px 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .provider-info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #495057;
+        }
+
+        .info-value {
             color: #212529;
         }
 
-        .feature-description {
+        .form-section {
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: #212529;
+            margin-bottom: 8px;
+        }
+
+        .form-label .required {
+            color: #dc3545;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.15s ease-in-out;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #007AFF;
+            box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+        }
+
+        .password-strength {
+            margin-top: 8px;
+            height: 4px;
+            background: #e9ecef;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .password-strength-bar {
+            height: 100%;
+            transition: width 0.3s, background-color 0.3s;
+        }
+
+        .password-hint {
+            font-size: 14px;
             color: #6c757d;
-            line-height: 1.6;
+            margin-top: 4px;
         }
 
-        .footer {
-            background: #212529;
+        .submit-button {
+            width: 100%;
+            padding: 16px;
+            background: #007AFF;
             color: white;
-            padding: 40px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.15s;
+        }
+
+        .submit-button:hover:not(:disabled) {
+            background: #0056b3;
+        }
+
+        .submit-button:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+        }
+
+        .app-links {
+            background: #e7f3ff;
+            border: 1px solid #bee5eb;
+            border-radius: 12px;
+            padding: 24px;
             text-align: center;
+            margin-top: 24px;
         }
 
-        .footer a {
-            color: #adb5bd;
-        }
-
-        .footer a:hover {
+        .app-link-button {
+            display: inline-block;
+            margin: 8px;
+            padding: 12px 24px;
+            background: #28a745;
             color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.15s;
         }
 
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
+        .app-link-button:hover {
+            background: #218838;
+        }
+
+        .app-link-button.primary {
+            background: #007AFF;
+        }
+
+        .app-link-button.primary:hover {
+            background: #0056b3;
+        }
+
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #007AFF;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #f5c6cb;
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #c3e6cb;
+        }
+
+        .next-steps {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 24px;
+        }
+
+        .next-steps h3 {
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+
+        .next-steps ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .next-steps li {
+            margin-bottom: 8px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 640px) {
+            .setup-container {
+                padding: 16px;
+                margin: 20px auto;
             }
 
-            .hero p {
-                font-size: 1.25rem;
+            .provider-info-row {
+                flex-direction: column;
             }
 
-            .app-badge {
-                width: 100%;
-                max-width: 300px;
+            .info-label {
+                margin-bottom: 4px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>🏠 CraHo</h1>
-            <p>Professionel vinduespudsning og håndværk direkte i appen</p>
-            <p style="font-size: 1.2rem; opacity: 0.9;">
-                Book kvalificerede håndværkere til dit hjem med få klik
-            </p>
+    <div class="setup-container">
+        <!-- Loading State -->
+        <div id="loadingState">
+            <div class="text-center">
+                <div class="loading-spinner"></div>
+                <p>Validerer invitation...</p>
+            </div>
+        </div>
+
+        <!-- Error State -->
+        <div id="errorState" class="hidden">
+            <div class="error-message">
+                <h2>❌ Ugyldig eller udløbet invitation</h2>
+                <p id="errorMessage">Invitation linket er ikke gyldigt eller er udløbet. Kontakt venligst CraHo support.</p>
+            </div>
+            <div class="text-center">
+                <a href="mailto:support@craho.dk" class="app-link-button">Kontakt Support</a>
+            </div>
+        </div>
+
+        <!-- Success State -->
+        <div id="successState" class="hidden">
+            <div class="success-message">
+                <h2>✅ Konto oprettet!</h2>
+                <p id="successMessage">Velkommen til CraHo! Din konto er nu oprettet.</p>
+            </div>
             
-            <div class="app-badges">
-                <a href="https://apps.apple.com/app/craho" class="app-badge">
-                    📱 Download til iOS
-                </a>
-                <a href="https://play.google.com/store/apps/details?id=com.craho.app" class="app-badge">
-                    🤖 Download til Android
-                </a>
+            <div class="app-links">
+                <h3>Log ind i CraHo appen</h3>
+                <p>Download appen og log ind med din email og adgangskode</p>
+                <a href="craho://auth/login" class="app-link-button primary" id="openAppButton">📱 Åbn CraHo App</a>
+                <div style="margin-top: 20px;">
+                    <a href="https://apps.apple.com/app/craho" class="app-link-button">App Store</a>
+                    <a href="https://play.google.com/store/apps/details?id=com.craho.app" class="app-link-button">Google Play</a>
+                </div>
+            </div>
+
+            <div class="next-steps">
+                <h3>Næste skridt</h3>
+                <ul>
+                    <li>📱 Download CraHo appen fra App Store eller Google Play</li>
+                    <li>🔐 Log ind med din email og adgangskode</li>
+                    <li>📅 Administrer din kalender og tilgængelighed</li>
+                    <li>📋 Se og håndter dine bookinger</li>
+                    <li>💰 Følg dine indtægter og statistikker</li>
+                </ul>
             </div>
         </div>
-    </section>
 
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <h2 class="text-center mb-5">Hvorfor vælge CraHo?</h2>
+        <!-- Main Setup Form -->
+        <div id="setupForm" class="hidden">
+            <!-- Header -->
+            <div class="text-center" style="margin-bottom: 32px;">
+                <h1>Velkommen til CraHo!</h1>
+                <p style="font-size: 18px; color: #6c757d;">Opret din udbyderkonto</p>
+            </div>
+
+            <!-- Provider Info -->
+            <div class="provider-info-card">
+                <h3 style="margin-top: 0;">Virksomhedsoplysninger</h3>
+                <div class="provider-info-row">
+                    <span class="info-label">Navn:</span>
+                    <span class="info-value" id="providerName">-</span>
+                </div>
+                <div class="provider-info-row">
+                    <span class="info-label">Email:</span>
+                    <span class="info-value" id="providerEmail">-</span>
+                </div>
+                <div class="provider-info-row">
+                    <span class="info-label">Virksomhed:</span>
+                    <span class="info-value" id="providerBusiness">-</span>
+                </div>
+                <div class="provider-info-row">
+                    <span class="info-label">CVR:</span>
+                    <span class="info-value" id="providerCVR">-</span>
+                </div>
+            </div>
+
+            <!-- Account Setup Form -->
+            <form id="accountForm" class="form-section">
+                <h3 style="margin-top: 0;">Opret din konto</h3>
+                
+                <div class="form-group">
+                    <label class="form-label" for="phone">Telefonnummer (valgfrit)</label>
+                    <input 
+                        type="tel" 
+                        id="phone" 
+                        class="form-input" 
+                        placeholder="+45 12 34 56 78"
+                        autocomplete="tel"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="password">
+                        Adgangskode <span class="required">*</span>
+                    </label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        class="form-input" 
+                        placeholder="Mindst 6 tegn"
+                        required
+                        autocomplete="new-password"
+                    >
+                    <div class="password-strength">
+                        <div class="password-strength-bar" id="strengthBar"></div>
+                    </div>
+                    <p class="password-hint" id="strengthText">Adgangskoden skal være mindst 6 tegn</p>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="confirmPassword">
+                        Bekræft adgangskode <span class="required">*</span>
+                    </label>
+                    <input 
+                        type="password" 
+                        id="confirmPassword" 
+                        class="form-input" 
+                        placeholder="Gentag adgangskode"
+                        required
+                        autocomplete="new-password"
+                    >
+                </div>
+
+                <button type="submit" class="submit-button" id="submitButton">
+                    Opret konto
+                </button>
+            </form>
+
+            <!-- App Download Links -->
+            <div class="app-links">
+                <p style="margin-bottom: 16px;">Har du allerede en konto?</p>
+                <a href="craho://auth/login" class="app-link-button primary">📱 Log ind i appen</a>
+            </div>
+
+            <div class="next-steps">
+                <h3>Efter oprettelse kan du:</h3>
+                <ul>
+                    <li>📅 Administrere din kalender og tilgængelighed</li>
+                    <li>📋 Se og håndtere bookinger i realtid</li>
+                    <li>🗺️ Opdatere dine serviceområder</li>
+                    <li>💰 Følge dine indtægter og statistikker</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuration
+        const BACKEND_URL = 'https://craho-production.up.railway.app';
+        
+        // Get token from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('token');
+
+        // State
+        let providerData = null;
+
+        // DOM Elements
+        const loadingState = document.getElementById('loadingState');
+        const errorState = document.getElementById('errorState');
+        const successState = document.getElementById('successState');
+        const setupForm = document.getElementById('setupForm');
+        const accountForm = document.getElementById('accountForm');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirmPassword');
+        const strengthBar = document.getElementById('strengthBar');
+        const strengthText = document.getElementById('strengthText');
+        const submitButton = document.getElementById('submitButton');
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            if (!token) {
+                showError('Manglende invitation token. Kontakt venligst CraHo support.');
+                return;
+            }
+            validateToken();
+        });
+
+        // Validate invitation token
+        async function validateToken() {
+            try {
+                const response = await fetch(`${BACKEND_URL}/provider-setup/validate/${token}`);
+                
+                if (!response.ok) {
+                    const error = await response.json();
+                    showError(error.error || 'Ugyldig eller udløbet invitation');
+                    return;
+                }
+
+                const data = await response.json();
+                providerData = data.provider;
+                
+                // Populate provider info
+                document.getElementById('providerName').textContent = providerData.name;
+                document.getElementById('providerEmail').textContent = providerData.email;
+                document.getElementById('providerBusiness').textContent = providerData.business_name;
+                document.getElementById('providerCVR').textContent = providerData.cvr_number;
+
+                // Show form
+                loadingState.classList.add('hidden');
+                setupForm.classList.remove('hidden');
+
+            } catch (error) {
+                console.error('Validation error:', error);
+                showError('Kunne ikke validere invitation. Tjek din internetforbindelse og prøv igen.');
+            }
+        }
+
+        // Password strength checker
+        passwordInput.addEventListener('input', (e) => {
+            const password = e.target.value;
+            const strength = calculatePasswordStrength(password);
             
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">✅</div>
-                    <h3 class="feature-title">Verificerede Håndværkere</h3>
-                    <p class="feature-description">
-                        Alle vores udbydere er verificerede med CVR-nummer og gennemgår en grundig godkendelsesproces
-                    </p>
-                </div>
+            // Update strength bar
+            strengthBar.style.width = `${strength.percentage}%`;
+            strengthBar.style.backgroundColor = strength.color;
+            strengthText.textContent = strength.text;
+        });
 
-                <div class="feature-card">
-                    <div class="feature-icon">📅</div>
-                    <h3 class="feature-title">Nem Booking</h3>
-                    <p class="feature-description">
-                        Book tid direkte i appen og se tilgængelige tider i realtid hos din lokale håndværker
-                    </p>
-                </div>
+        function calculatePasswordStrength(password) {
+            let strength = 0;
+            
+            if (password.length >= 6) strength += 25;
+            if (password.length >= 10) strength += 25;
+            if (/[a-z]/.test(password) && /[A-Z]/.test(password)) strength += 25;
+            if (/\d/.test(password)) strength += 15;
+            if (/[^a-zA-Z0-9]/.test(password)) strength += 10;
 
-                <div class="feature-card">
-                    <div class="feature-icon">💳</div>
-                    <h3 class="feature-title">Sikker Betaling</h3>
-                    <p class="feature-description">
-                        Betal sikkert gennem appen med Stripe. Dine kortoplysninger er krypterede og beskyttede
-                    </p>
-                </div>
+            let color, text;
+            if (strength < 25) {
+                color = '#dc3545';
+                text = 'For svag';
+            } else if (strength < 50) {
+                color = '#ffc107';
+                text = 'Svag';
+            } else if (strength < 75) {
+                color = '#17a2b8';
+                text = 'God';
+            } else {
+                color = '#28a745';
+                text = 'Stærk';
+            }
 
-                <div class="feature-card">
-                    <div class="feature-icon">🗺️</div>
-                    <h3 class="feature-title">Lokal Service</h3>
-                    <p class="feature-description">
-                        Find håndværkere i dit område der kender lokalområdet og kan levere hurtig service
-                    </p>
-                </div>
+            return { percentage: strength, color, text };
+        }
 
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3 class="feature-title">Fuld Transparens</h3>
-                    <p class="feature-description">
-                        Se priser, anmeldelser og tilgængelighed før du booker. Ingen skjulte omkostninger
-                    </p>
-                </div>
+        // Form submission
+        accountForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
 
-                <div class="feature-card">
-                    <div class="feature-icon">🛡️</div>
-                    <h3 class="feature-title">GDPR Compliance</h3>
-                    <p class="feature-description">
-                        Dine data er sikre. Vi overholder alle GDPR-regler og beskytter dit privatliv
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+            const password = passwordInput.value;
+            const confirmPassword = confirmPasswordInput.value;
+            const phone = document.getElementById('phone').value;
 
-    <!-- CTA Section -->
-    <section style="background: #f8f9fa; padding: 80px 20px; text-align: center;">
-        <div class="container">
-            <h2 style="margin-bottom: 24px;">Klar til at komme i gang?</h2>
-            <p style="font-size: 1.25rem; color: #6c757d; margin-bottom: 40px;">
-                Download CraHo i dag og få professionel service til dit hjem
-            </p>
-            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                <a href="https://apps.apple.com/app/craho" class="btn btn-primary btn-lg">
-                    Download til iOS
-                </a>
-                <a href="https://play.google.com/store/apps/details?id=com.craho.app" class="btn btn-success btn-lg">
-                    Download til Android
-                </a>
-            </div>
-        </div>
-    </section>
+            // Validation
+            if (!password || !confirmPassword) {
+                alert('Udfyld venligst alle påkrævede felter');
+                return;
+            }
 
-    <!-- Provider CTA -->
-    <section style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 80px 20px; text-align: center; color: white;">
-        <div class="container">
-            <h2 style="color: white; margin-bottom: 24px;">Er du håndværker?</h2>
-            <p style="font-size: 1.25rem; margin-bottom: 40px; opacity: 0.95;">
-                Bliv en del af CraHo-platformen og få adgang til flere kunder
-            </p>
-            <a href="/provider-registration.html" class="btn btn-lg" style="background: white; color: #667eea;">
-                Ansøg som udbyder
-            </a>
-        </div>
-    </section>
+            if (password !== confirmPassword) {
+                alert('Adgangskoderne matcher ikke');
+                return;
+            }
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 CraHo. Alle rettigheder forbeholdes.</p>
-            <p>
-                <a href="https://r13lundorff.github.io/craho-legal/privacy.html">Privatlivspolitik</a> |
-                <a href="https://r13lundorff.github.io/craho-legal/support.html">Support</a> |
-                <a href="mailto:support@craho.dk">support@craho.dk</a>
-            </p>
-        </div>
-    </footer>
+            if (password.length < 6) {
+                alert('Adgangskoden skal være mindst 6 tegn');
+                return;
+            }
+
+            // Disable submit button
+            submitButton.disabled = true;
+            submitButton.textContent = 'Opretter konto...';
+
+            try {
+                const response = await fetch(`${BACKEND_URL}/provider-setup/complete`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        token,
+                        password,
+                        phone: phone.trim() || null,
+                    }),
+                });
+
+                if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.error || 'Kunne ikke oprette konto');
+                }
+
+                const data = await response.json();
+                showSuccess(data.user.name);
+
+            } catch (error) {
+                console.error('Setup error:', error);
+                alert(error.message || 'Kunne ikke oprette konto. Prøv igen senere.');
+                submitButton.disabled = false;
+                submitButton.textContent = 'Opret konto';
+            }
+        });
+
+        // Show error state
+        function showError(message) {
+            loadingState.classList.add('hidden');
+            setupForm.classList.add('hidden');
+            errorState.classList.remove('hidden');
+            document.getElementById('errorMessage').textContent = message;
+        }
+
+        // Show success state
+        function showSuccess(userName) {
+            setupForm.classList.add('hidden');
+            successState.classList.remove('hidden');
+            document.getElementById('successMessage').textContent = 
+                `Velkommen til CraHo, ${userName}! Du kan nu logge ind og administrere dine bookinger.`;
+
+            // Try to open app if on mobile
+            if (isMobileDevice()) {
+                setTimeout(() => {
+                    window.location.href = 'craho://auth/login';
+                }, 2000);
+            }
+        }
+
+        // Device detection
+        function isMobileDevice() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        // Handle app button click
+        document.getElementById('openAppButton')?.addEventListener('click', (e) => {
+            // Try to open app, fallback to app stores
+            setTimeout(() => {
+                if (document.hidden) return; // App opened successfully
+                
+                // App didn't open, show app store options
+                if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                    window.location.href = 'https://apps.apple.com/app/craho';
+                } else if (/Android/i.test(navigator.userAgent)) {
+                    window.location.href = 'https://play.google.com/store/apps/details?id=com.craho.app';
+                }
+            }, 1500);
+        });
+    </script>
 </body>
 </html>
-
