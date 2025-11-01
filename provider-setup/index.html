@@ -521,12 +521,31 @@
                     }),
                 });
 
+                const data = await response.json();
+
                 if (!response.ok) {
-                    const error = await response.json();
-                    throw new Error(error.error || 'Kunne ikke oprette konto');
+                    // Handle specific error: User already exists
+                    if (data.code === 'USER_EXISTS') {
+                        // Show friendly message with options
+                        const doLogin = confirm(
+                            `Der findes allerede en konto med email ${providerData.email}.\n\n` +
+                            `Klik OK for at logge ind med din eksisterende adgangskode og linke din udbyder-profil.\n\n` +
+                            `Eller klik Annuller for at nulstille din adgangskode.`
+                        );
+
+                        if (doLogin) {
+                            // Redirect to login
+                            window.location.href = `craho://auth/login?email=${encodeURIComponent(providerData.email)}&linkProvider=true`;
+                        } else {
+                            // Redirect to password reset
+                            window.location.href = `/auth/forgot-password?email=${encodeURIComponent(providerData.email)}`;
+                        }
+                        return;
+                    }
+
+                    throw new Error(data.error || 'Kunne ikke oprette konto');
                 }
 
-                const data = await response.json();
                 showSuccess(data.user.name);
 
             } catch (error) {
