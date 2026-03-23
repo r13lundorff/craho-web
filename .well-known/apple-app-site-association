@@ -5,8 +5,6 @@
       {
         "appID": "CRSKYKCDAY.com.craho.app",
         "paths": [
-          "/provider-setup",
-          "/provider-setup/*",
           "/auth/*",
           "/booking/*"
         ]
@@ -19,4 +17,3 @@
     ]
   }
 }
-
